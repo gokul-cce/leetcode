@@ -4,14 +4,12 @@ class Solution:
         total = ''
         for i in s:
             total += str(dic[i])
-        # print(total)
         
-        while k:
+        for j in range(k):
             count = 0
             for i in total:
                 count += int(i)
             total = str(count)
-            k -= 1
         return count
 
         
