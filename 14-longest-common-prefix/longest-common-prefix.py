@@ -3,13 +3,9 @@ class Solution:
         strs.sort()
         st = ''
         first = strs[0]
-        length = len(first)
-        for i in range(length):
-            for j in strs:
-                if j[i] != first[i]:
-                    length = i
-                    break  
-            if length != len(first):
+        last = strs[-1]
+        for i in range(len(first)):
+            if first[i] != last[i]:
                 break
             
             st += first[i]
