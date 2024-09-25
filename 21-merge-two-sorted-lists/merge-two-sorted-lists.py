@@ -11,20 +11,18 @@ class Solution:
         res = dummy
         while temp1 != None and temp2 != None:
             if temp1.val < temp2.val:
-                res.next = ListNode(temp1.val)
+                res.next = temp1
                 temp1 = temp1.next
             else:
-                res.next = ListNode(temp2.val)
+                res.next = temp2
                 temp2 = temp2.next
             res = res.next         
-        while temp1:
-            res.next = ListNode(temp1.val)
-            temp1 = temp1.next
-            res = res.next
-        while temp2:
-            res.next = ListNode(temp2.val)
-            temp2 = temp2.next
-            res = res.next
+        if temp1:
+            res.next = temp1
+            
+        if temp2:
+            res.next = temp2
+           
         return dummy.next
         
         
