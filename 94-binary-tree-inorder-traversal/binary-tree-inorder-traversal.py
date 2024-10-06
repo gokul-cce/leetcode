@@ -9,11 +9,13 @@ class Solution:
         stack = []
         res = []
         temp = root
-        while stack or temp:
-            if temp:
+        while True:
+            if temp != None:
                 stack.append(temp)
                 temp = temp.left
             else:
+                if len(stack) == 0:
+                    break
                 current = stack.pop()
                 res.append(current.val)
                 temp = current.right
