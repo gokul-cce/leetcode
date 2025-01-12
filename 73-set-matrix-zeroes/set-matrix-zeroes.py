@@ -5,25 +5,27 @@ class Solution:
         """
         m = len(matrix)
         n = len(matrix[0])
-        def markrow(i):
-            for j in range(n):
-                if matrix[i][j] != 0:
-                    matrix[i][j] = float(-inf)
+        row = [0] * m
+        col = [0] * n
+        # def markrow(i):
+        #     for j in range(n):
+        #         if matrix[i][j] != 0:
+        #             matrix[i][j] = float(-inf)
         
-        def markcol(j):
-            for i in range(m):
-                if matrix[i][j] != 0:
-                    matrix[i][j] = float(-inf)
+        # def markcol(j):
+        #     for i in range(m):
+        #         if matrix[i][j] != 0:
+        #             matrix[i][j] = float(-inf)
         
         for i in range(m):
             for j in range(n):
                 if matrix[i][j] == 0:
-                    markrow(i)
-                    markcol(j)
-        
+                    row[i] = 1
+                    col[j] = 1
+
         for i in range(m):
             for j in range(n):
-                if matrix[i][j] == float(-inf):
+                if row[i] or col[j]:
                     matrix[i][j] = 0
         return matrix
     
