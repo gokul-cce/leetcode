@@ -1,21 +1,14 @@
 class Solution:
     def maxAscendingSum(self, nums: List[int]) -> int:
-        res = 0
-        left = 0 
-        right = 0
-        total = 0
-        while right < len(nums):
-            if left == right:
-                total = nums[left]
+        res = nums[0]
+        total = nums[0]
+        for i in range(1,len(nums)):
+            if nums[i] > nums[i-1]:
+                total += nums[i]
                 res = max(res,total)
-                right += 1
-            elif nums[left] < nums[right]:
-                total += nums[right]
-                res = max(res,total)
-                left += 1
-                right += 1
             else:
-                left = right
+                total = nums[i]
+        
         return res
 
     
