@@ -4,12 +4,11 @@ class Solution:
         dic = {}
         result = 0
         while right < len(s):
-            while s[right] in dic:
-                del dic[s[left]]
-                left += 1
+            if s[right] in dic and dic[s[right]]>=left:
+                left = dic[s[right]] + 1
             
             dic[s[right]] = right
             right += 1
-            result = max(result,len(dic))
+            result = max(result,right-left)
         return result
 
