@@ -3,10 +3,10 @@ class Solution:
         ans = []
         nums.sort()
         n = len(nums)
-        for i in range(n):
+        for i in range(n-3):
             if i > 0 and nums[i] == nums[i-1]:
                 continue
-            for j in range(i+1,n):
+            for j in range(i+1,n-2):
                 if i+1 < j and nums[j] == nums[j-1]:
                     continue
                 k = j + 1
